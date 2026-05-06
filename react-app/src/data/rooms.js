@@ -5,10 +5,10 @@ export const roomsData = [
     description: "Our finest family suite, offering premium comfort, high-end amenities, and ample space for groups.",
     features: ["Seaview", "2 Large Beds", "AC", "Max: 4 Guests"],
     images: [
-      "https://i.postimg.cc/NjwMVSfL/photo_2026_02_28_19_49_48.jpg",
-      "https://i.postimg.cc/9QjMSKF0/photo_2026_02_28_19_48_17.jpg",
-      "https://i.postimg.cc/02tvG4Kv/photo_2026_02_28_19_44_12.jpg",
-      "https://i.postimg.cc/NfNt8n2Y/photo_2026_02_28_19_44_29.jpg"
+      require('../../assets/photo_2026_02_28_19_49_48.jpg'),
+      require('../../assets/photo_2026_02_28_19_48_17.jpg'),
+      require('../../assets/photo_2026_02_28_19_44_12.jpg'),
+      require('../../assets/photo_2026_02_28_19_44_29.jpg')
     ]
   },
   {
@@ -17,7 +17,7 @@ export const roomsData = [
     description: "An upgraded, luxurious retreat for couples featuring high-end furnishings and maximum comfort.",
     features: ["Seaview", "1 King Bed", "AC", "Max: 2 Guests"],
     images: [
-      "https://i.postimg.cc/85xzN0Dy/photo-2026-02-28-19-51-03.jpg"
+      require('../../assets/photo-2026-02-28-19-51-03.jpg')
     ]
   },
   {
@@ -26,9 +26,9 @@ export const roomsData = [
     description: "Enjoy luxury and romance with uninterrupted, breathtaking views of the ocean from your premium suite.",
     features: ["Seaview", "1 King Bed", "AC", "Max: 2 Guests"],
     images: [
-      "https://i.postimg.cc/8PyGdYf1/photo_2026_02_28_19_43_26.jpg",
-      "https://i.postimg.cc/02tvG4Kv/photo_2026_02_28_19_44_12.jpg",
-      "https://i.postimg.cc/NfNt8n2Y/photo_2026_02_28_19_44_29.jpg"
+      require('../../assets/photo_2026_02_28_19_43_26.jpg'),
+      require('../../assets/photo_2026_02_28_19_44_12.jpg'),
+      require('../../assets/photo_2026_02_28_19_44_29.jpg')
     ]
   },
   {
@@ -37,9 +37,9 @@ export const roomsData = [
     description: "The best of both worlds for families—stunning elevated ocean views combined with spacious bedding for four.",
     features: ["Seaview", "2 Large Beds", "Max: 4 Guests"],
     images: [
-      "https://i.postimg.cc/mrfrvqLm/photo_2026_02_28_19_54_40.jpg",
-      "https://i.postimg.cc/yN4NM51v/photo_2026_02_28_19_54_33.jpg",
-      "https://i.postimg.cc/5t2P9gS1/photo_2026_02_28_19_55_06.jpg"
+      require('../../assets/photo_2026_02_28_19_54_40.jpg'),
+      require('../../assets/photo_2026_02_28_19_54_33.jpg'),
+      require('../../assets/photo_2026_02_28_19_55_06.jpg')
     ]
   },
   {
@@ -48,9 +48,9 @@ export const roomsData = [
     description: "Wake up to the sound of the waves. A beautiful first-floor room offering lovely sea views for couples.",
     features: ["Seaview", "1 King Bed", "Max: 2 Guests"],
     images: [
-      "https://i.postimg.cc/RV7p1J3S/photo_2026_02_28_19_53_50.jpg",
-      "https://i.postimg.cc/bNxV0SGv/photo_2026_02_28_19_53_44.jpg",
-      "https://i.postimg.cc/59Rs48XL/photo_2026_02_28_19_53_56.jpg"
+      require('../../assets/photo_2026_02_28_19_53_50.jpg'),
+      require('../../assets/photo_2026_02_28_19_53_44.jpg'),
+      require('../../assets/photo_2026_02_28_19_53_56.jpg')
     ]
   },
   {
@@ -59,7 +59,7 @@ export const roomsData = [
     description: "Comfortable first-floor accommodation with extra bedding space, perfect for friend groups or families.",
     features: ["Non-Seaview", "2 Large Beds", "Max: 4 Guests"],
     images: [
-      "https://i.postimg.cc/3wvtRyQ6/photo_2026_02_28_19_53_03.jpg"
+      require('../../assets/photo_2026_02_28_19_53_03.jpg')
     ]
   },
   {
@@ -68,8 +68,8 @@ export const roomsData = [
     description: "A cozy and budget-friendly room on the first floor, ideal for couples or small families wanting a peaceful stay.",
     features: ["Non-Seaview", "1 King Bed", "Max: 3 Guests"],
     images: [
-      "https://i.postimg.cc/Hxt4cXZS/photo_2026_02_28_19_51_49.jpg",
-      "https://i.postimg.cc/4d1b7VLB/photo_2026_02_28_19_51_55.jpg"
+      require('../../assets/photo_2026_02_28_19_51_49.jpg'),
+      require('../../assets/photo_2026_02_28_19_51_55.jpg')
     ]
   },
   {
@@ -78,11 +78,11 @@ export const roomsData = [
     description: "Convenient and spacious ground-floor accommodation, offering easy access to the beach and resort amenities.",
     features: ["Non-Seaview", "2 Large Beds", "Max: 4 Guests"],
     images: [
-      "https://i.postimg.cc/vZzVvbL5/photo_2026_02_28_19_45_46.jpg",
-      "https://i.postimg.cc/6p0vhtLd/photo_2026_02_28_19_46_10.jpg",
-      "https://i.postimg.cc/2SwZxrFZ/photo_2026_02_28_19_46_25.jpg",
-      "https://i.postimg.cc/sgchJs9S/photo_2026_02_28_19_46_52.jpg",
-      "https://i.postimg.cc/BQh4QYxt/photo-2026-02-28-19-47-05.jpg"
+      require('../../assets/photo_2026_02_28_19_45_46.jpg'),
+      require('../../assets/photo_2026_02_28_19_46_10.jpg'),
+      require('../../assets/photo_2026_02_28_19_46_25.jpg'),
+      require('../../assets/photo_2026_02_28_19_46_52.jpg'),
+      require('../../assets/photo-2026-02-28-19-47-05.jpg')
     ]
   }
 ];

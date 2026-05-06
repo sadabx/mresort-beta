@@ -1,6 +1,13 @@
 // Initialize Lucide Icons
 lucide.createIcons();
 
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('pagePreloader');
+  if (!preloader) return;
+  preloader.classList.add('is-hidden');
+  setTimeout(() => preloader.remove(), 400);
+});
+
 let currentRoom = '';
 let currentPrice = 0;
 let currentGuestName = '';

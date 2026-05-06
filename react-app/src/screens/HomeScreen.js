@@ -26,7 +26,7 @@ export default function HomeScreen({ navigation }) {
       style={styles.card} 
       onPress={() => navigation.navigate('RoomDetails', { room: item })}
     >
-      <Image source={{ uri: item.images[0] }} style={styles.image} />
+      <Image source={item.images[0]} style={styles.image} />
       <View style={styles.cardContent}>
         <Text style={styles.roomName}>{item.name}</Text>
         <Text style={styles.price}>৳{item.price.toLocaleString()} <Text style={styles.perNight}>/ night</Text></Text>

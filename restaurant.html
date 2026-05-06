@@ -9,10 +9,16 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="icon" type="image/ico" href="images/favicon.ico" />
+    <link rel="icon" type="image/ico" href="assets/favicon.ico" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="min-h-screen bg-[#0a0a0a] text-gray-200 overflow-x-hidden">
+    <div id="pagePreloader" aria-hidden="true">
+      <div class="preloader-inner">
+        <div class="preloader-spinner"></div>
+        <p class="preloader-text">Loading Menu</p>
+      </div>
+    </div>
     <!-- Navbar -->
     <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0a0a0a]/98 backdrop-blur-md py-4 border-b border-[#222]">
       <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -31,7 +37,7 @@
     <!-- Header -->
     <header class="pt-32 pb-16 px-6 text-center border-b border-[#1a1a1a] relative overflow-hidden">
       <div class="absolute inset-0 z-0">
-        <img src="https://i.postimg.cc/T1FM4BJg/imageye.jpg" class="w-full h-full object-cover opacity-20 grayscale-[50%]" alt="Restaurant Background" />
+        <img src="assets/imageye.jpg" class="w-full h-full object-cover opacity-20 grayscale-[50%]" alt="Restaurant Background" />
         <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 to-[#0a0a0a]"></div>
       </div>
       <div class="relative z-10 max-w-3xl mx-auto reveal-on-load fade-in-up">
@@ -152,6 +158,12 @@
 
     <script>
       lucide.createIcons();
+      window.addEventListener('load', () => {
+        const preloader = document.getElementById('pagePreloader');
+        if (!preloader) return;
+        preloader.classList.add('is-hidden');
+        setTimeout(() => preloader.remove(), 400);
+      });
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {

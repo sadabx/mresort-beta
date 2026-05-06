@@ -8,7 +8,7 @@ export default function RoomDetailsScreen({ route, navigation }) {
   const { room } = route.params;
 
   const renderImage = ({ item }) => (
-    <Image source={{ uri: item }} style={styles.carouselImage} />
+    <Image source={item} style={styles.carouselImage} />
   );
 
   return (
