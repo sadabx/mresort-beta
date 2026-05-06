@@ -1,8 +1,6 @@
-// script.js
 // Initialize Lucide Icons
 lucide.createIcons();
 
-// Global variables for booking
 let currentRoom = '';
 let currentPrice = 0;
 let currentGuestName = '';
@@ -68,98 +66,45 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
 revealElements.forEach((el) => revealObserver.observe(el));
 
-// Initial load animation
 setTimeout(() => {
   document.querySelectorAll(".reveal-on-load").forEach((el) => {
     el.classList.add("is-visible");
   });
 }, 100);
 
-// ========== MAIN GALLERY SLIDER ==========
-let currentSlide = 0;
-const slides = document.querySelectorAll(".gallery-slide");
-const dots = document.querySelectorAll(".gallery-dot");
-const totalSlides = slides.length;
-
-function updateSlider(index) {
-  slides.forEach((slide, i) => {
-    if (i === index) {
-      slide.classList.add("opacity-100", "z-10");
-      slide.classList.remove("opacity-0", "z-0");
-    } else {
-      slide.classList.add("opacity-0", "z-0");
-      slide.classList.remove("opacity-100", "z-10");
-    }
-  });
-
-  dots.forEach((dot, i) => {
-    if (i === index) {
-      dot.classList.add("w-8", "bg-cyan-400");
-      dot.classList.remove("w-2", "bg-white/30");
-    } else {
-      dot.classList.add("w-2", "bg-white/30");
-      dot.classList.remove("w-8", "bg-cyan-400");
-    }
-  });
-}
-
-window.nextSlide = function() {
-  currentSlide = (currentSlide + 1) % totalSlides;
-  updateSlider(currentSlide);
-};
-
-window.prevSlide = function() {
-  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-  updateSlider(currentSlide);
-};
-
-window.goToSlide = function(index) {
-  currentSlide = index;
-  updateSlider(currentSlide);
-};
-
-// Auto-advance main gallery
-setInterval(nextSlide, 5000);
-
 // ========== DYNAMIC ROOM RENDERING & LOGIC ==========
 const roomsContainer = document.getElementById('rooms-container');
 
 if (roomsContainer && typeof roomsData !== 'undefined') {
-  // Generate HTML for all rooms dynamically
   roomsContainer.innerHTML = roomsData.map((room, index) => `
-    <div class="room-card bg-[#111] rounded-2xl overflow-hidden border border-white/5 hover:border-cyan-500/30 transition-all duration-300 fade-in-up scroll-reveal" style="transition-delay: 0.${index + 1}s" data-room="${room.name}" data-price="${room.price}">
-      <div class="relative h-64 overflow-hidden">
+    <div class="room-card group relative fade-in-up scroll-reveal cursor-pointer" style="transition-delay: 0.${index + 1}s" data-room="${room.name}" data-price="${room.price}">
+      <div class="relative h-80 overflow-hidden bg-[#111] border border-[#222]">
         <div class="room-gallery absolute inset-0">
-          ${room.images.map((img, i) => `<img src="${img}" class="gallery-img ${i === 0 ? 'active' : ''}" alt="${room.name}" />`).join('')}
+          ${room.images.map((img, i) => `<img src="${img}" class="gallery-img ${i === 0 ? 'active' : ''} absolute inset-0 w-full h-full object-cover opacity-0" alt="${room.name}" />`).join('')}
         </div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div class="absolute bottom-4 left-4 z-10 bg-black/60 px-3 py-1 rounded-full backdrop-blur-sm">
-          <span class="text-2xl font-bold text-white">৳${room.price.toLocaleString()}</span>
-          <span class="text-gray-300 text-sm">/night</span>
-        </div>
-        <div class="absolute bottom-4 right-4 flex gap-2 z-20">
-          <button class="gallery-prev w-8 h-8 rounded-full bg-black/50 flex items-center justify-center hover:bg-black/70 transition-colors"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
-          <button class="gallery-next w-8 h-8 rounded-full bg-black/50 flex items-center justify-center hover:bg-black/70 transition-colors"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+        <button class="select-room-btn absolute bottom-0 left-0 w-full py-4 bg-red-600 text-white font-bold uppercase tracking-widest text-sm translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-20">
+          Select Room
+        </button>
+        <div class="absolute inset-y-0 w-full flex justify-between items-center px-2 opacity-0 group-hover:opacity-100 transition-opacity z-20 pointer-events-none">
+          ${room.images.length > 1 ? `
+          <button class="gallery-prev w-8 h-8 bg-black/70 text-white flex items-center justify-center hover:bg-red-600 transition-colors pointer-events-auto"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
+          <button class="gallery-next w-8 h-8 bg-black/70 text-white flex items-center justify-center hover:bg-red-600 transition-colors pointer-events-auto"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+          ` : ''}
         </div>
       </div>
-      <div class="p-6">
-        <h3 class="text-xl font-semibold mb-2">${room.name}</h3>
-        <p class="text-gray-400 mb-4">${room.description}</p>
-        <div class="flex flex-wrap gap-2 mb-4">
-          ${room.features.map(f => `<span class="px-3 py-1 text-xs bg-white/5 rounded-full text-gray-300">${f}</span>`).join('')}
+      <div class="pt-5 text-center">
+        <h3 class="text-lg font-medium text-gray-200 mb-1 tracking-wide">${room.name}</h3>
+        <p class="text-red-500 font-semibold tracking-widest">৳${room.price.toLocaleString()}</p>
+        <div class="flex justify-center flex-wrap gap-2 mt-3 opacity-60 text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider">
+          ${room.features.join(' <span class="text-gray-700">•</span> ')}
         </div>
-        <button class="select-room-btn w-full py-3 bg-cyan-600/20 border border-cyan-500/30 rounded-full text-cyan-300 hover:bg-cyan-600/40 transition-all font-medium">Select Room</button>
       </div>
     </div>
   `).join('');
 
-  // Watch newly created elements for scroll reveal
   document.querySelectorAll('#rooms-container .scroll-reveal').forEach(el => revealObserver.observe(el));
-  
-  // Initialize icons for the injected HTML
   lucide.createIcons();
 
-  // Attach Gallery Slider Logic to each room
   document.querySelectorAll('.room-card').forEach(card => {
     const gallery = card.querySelector('.room-gallery');
     if (!gallery) return;
@@ -178,9 +123,8 @@ if (roomsContainer && typeof roomsData !== 'undefined') {
     if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); currentIndex = (currentIndex + 1) % images.length; showImage(currentIndex); });
   });
 
-  // Attach Booking Modal Selection Logic
   document.querySelectorAll('.select-room-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', async (e) => {
       e.preventDefault();
       const card = btn.closest('.room-card');
       currentRoom = card.dataset.room;
@@ -199,11 +143,29 @@ if (roomsContainer && typeof roomsData !== 'undefined') {
       document.body.style.overflow = 'hidden';
       lucide.createIcons();
       updateCalculation();
+
+      if (checkinInput) { checkinInput.disabled = true; checkinInput.placeholder = "Loading dates..."; }
+      if (checkoutInput) { checkoutInput.disabled = true; checkoutInput.placeholder = "Loading dates..."; }
+
+      fetchBookedDates(currentRoom).then(() => {
+        if (checkinPicker) checkinPicker.set('disable', bookedDates);
+        if (checkoutPicker) checkoutPicker.set('disable', bookedDates);
+        if (checkinInput) { checkinInput.disabled = false; checkinInput.placeholder = "Select Check-in Date"; }
+        if (checkoutInput) { checkoutInput.disabled = false; checkoutInput.placeholder = "Select Check-out Date"; }
+      });
+
+      if (bookingFormView) bookingFormView.classList.remove('hidden');
+      if (successView) successView.classList.add('hidden');
+      
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      lucide.createIcons();
+      updateCalculation();
     });
   });
 }
 
-// ========== BOOKING MODAL ==========
+// ========== BOOKING MODAL LOGIC ==========
 const modal = document.getElementById('bookingModal');
 const closeModalBtn = document.getElementById('closeModalBtn');
 const closeSuccessBtn = document.getElementById('closeSuccessBtn');
@@ -213,7 +175,6 @@ const navBookBtn = document.getElementById('navBookBtn');
 const heroBookBtn = document.getElementById('heroBookBtn');
 const roomsSection = document.getElementById('rooms');
 
-// Scroll to rooms function
 function scrollToRooms() {
   roomsSection.scrollIntoView({ behavior: 'smooth' });
   if (isMenuOpen) toggleMenu();
@@ -232,44 +193,35 @@ function closeModal() {
 
 if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
 if (closeSuccessBtn) closeSuccessBtn.addEventListener('click', closeModal);
-
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) closeModal();
+modal.addEventListener('click', (e) => { 
+  if (e.target === modal || e.target.closest('.bg-black\\/90') || e.target.classList.contains('min-h-screen')) closeModal(); 
 });
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
-});
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
 
 // ========== FLATPICKR DATE PICKER ==========
 const checkinInput = document.getElementById('checkin');
 const checkoutInput = document.getElementById('checkout');
-
 let checkinPicker, checkoutPicker;
 
 if (checkinInput) {
   checkinPicker = flatpickr(checkinInput, {
-    minDate: 'today',
-    dateFormat: 'Y-m-d',
+    minDate: 'today', dateFormat: 'Y-m-d',
     onChange: function(selectedDates) {
-      if (selectedDates.length > 0 && checkoutPicker) {
-        checkoutPicker.set('minDate', selectedDates[0]);
-      }
-      validateDates();
-      updateCalculation();
+      if (selectedDates.length > 0 && checkoutPicker) checkoutPicker.set('minDate', selectedDates[0]);
+      validateDates(); updateCalculation();
     }
   });
+  checkinInput.addEventListener('input', () => { validateDates(); updateCalculation(); });
+  checkinInput.addEventListener('change', () => { validateDates(); updateCalculation(); });
 }
 
 if (checkoutInput) {
   checkoutPicker = flatpickr(checkoutInput, {
-    minDate: 'today',
-    dateFormat: 'Y-m-d',
-    onChange: function() {
-      validateDates();
-      updateCalculation();
-    }
+    minDate: 'today', dateFormat: 'Y-m-d',
+    onChange: function() { validateDates(); updateCalculation(); }
   });
+  checkoutInput.addEventListener('input', () => { validateDates(); updateCalculation(); });
+  checkoutInput.addEventListener('change', () => { validateDates(); updateCalculation(); });
 }
 
 // ========== DATE VALIDATION & CALCULATION ==========
@@ -281,28 +233,19 @@ const formError = document.getElementById('formError');
 
 function validateDates() {
   if (!checkinPicker || !checkoutPicker) return true;
-  
   const inDate = checkinPicker.selectedDates[0];
   const outDate = checkoutPicker.selectedDates[0];
-  
-  if (inDate && outDate) {
-    if (outDate <= inDate) {
-      if (formError) formError.innerText = 'Check-out must be after check-in';
-      return false;
-    } else {
-      if (formError) formError.innerText = '';
-      return true;
-    }
+  if (inDate && outDate && outDate <= inDate) {
+    if (formError) formError.innerText = 'Check-out must be after check-in'; return false;
+  } else {
+    if (formError) formError.innerText = ''; return true;
   }
-  return true;
 }
 
 function updateCalculation() {
   if (!currentPrice || !nightsSpan || !totalSpan || !advanceSpan) return;
-
   const inDate = checkinPicker ? checkinPicker.selectedDates[0] : null;
   const outDate = checkoutPicker ? checkoutPicker.selectedDates[0] : null;
-  
   if (inDate && outDate && outDate > inDate) {
     const diffTime = outDate - inDate;
     const nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -314,48 +257,66 @@ function updateCalculation() {
     currentAdvance = advance;
     advanceSpan.innerText = `৳${advance.toLocaleString()}`;
   } else {
-    nightsSpan.innerText = '0';
-    totalSpan.innerText = '৳0';
-    advanceSpan.innerText = '৳0';
+    nightsSpan.innerText = '0'; totalSpan.innerText = '৳0'; advanceSpan.innerText = '৳0';
   }
 }
 
 if (guests) guests.addEventListener('input', updateCalculation);
 
-// ========== GOOGLE SHEETS INTEGRATION ==========
+// ========== GOOGLE SHEETS SUBMISSION ==========
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw5wG-WQXyhkHPJgFWot3wuM2vi1fkg2XGaPXC8NPMsR3hhO3crs5ZRLp5xvdw2QbBTGg/exec';
-const submitBtn = document.getElementById('submitBooking');
 
-async function submitToSheets(data) {
+let bookedDates = [];
+async function fetchBookedDates(room) {
   try {
-    const response = await fetch(APPS_SCRIPT_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(data)
-    });
-    return await response.json();
-  } catch (error) {
-    console.error('Submission error:', error);
-    throw error;
+    const r = await fetch(APPS_SCRIPT_URL + '?action=getBookedDates&room=' + encodeURIComponent(room));
+    const d = await r.json();
+    if (d.dates) bookedDates = d.dates;
+    else bookedDates = [];
+  } catch (err) {
+    bookedDates = [];
   }
 }
+
+const idPhotoInput = document.getElementById('idPhoto');
+const fileNameDisplay = document.getElementById('fileNameDisplay');
+let currentPhotoBase64 = '';
+let currentPhotoMimeType = '';
+let currentPhotoName = '';
+
+if (idPhotoInput) {
+  idPhotoInput.addEventListener('change', function() {
+    if (this.files && this.files[0]) {
+      const file = this.files[0];
+      fileNameDisplay.innerText = file.name;
+      currentPhotoName = file.name;
+      currentPhotoMimeType = file.type;
+      
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const base64Data = e.target.result.split(',')[1];
+        currentPhotoBase64 = base64Data;
+      };
+      reader.readAsDataURL(file);
+    } else {
+      fileNameDisplay.innerText = 'Select Photo or PDF...';
+      currentPhotoBase64 = '';
+      currentPhotoMimeType = '';
+      currentPhotoName = '';
+    }
+  });
+}
+
+const submitBtn = document.getElementById('submitBooking');
 
 if (submitBtn) {
   submitBtn.addEventListener('click', async () => {
     if (formError) formError.innerText = '';
-
-    if (!currentRoom) {
-      if (formError) formError.innerText = 'Please select a room first.';
-      return;
-    }
+    if (!currentRoom) { if (formError) formError.innerText = 'Please select a room first.'; return; }
 
     const inDate = checkinPicker ? checkinPicker.selectedDates[0] : null;
     const outDate = checkoutPicker ? checkoutPicker.selectedDates[0] : null;
-    
-    if (!inDate || !outDate) {
-      if (formError) formError.innerText = 'Please select check-in and check-out dates.';
-      return;
-    }
+    if (!inDate || !outDate) { if (formError) formError.innerText = 'Please select check-in and check-out dates.'; return; }
     if (!validateDates()) return;
 
     const nameInput = document.getElementById('fullName');
@@ -367,46 +328,25 @@ if (submitBtn) {
     const email = emailInput ? emailInput.value.trim() : '';
     currentGuestName = name;
     
-    if (!name || !phone || !email) {
-      if (formError) formError.innerText = 'Name, phone and email are required.';
-      return;
-    }
+    if (!name || !phone || !email) { if (formError) formError.innerText = 'Name, phone and email are required.'; return; }
 
     const guestCount = guests ? parseInt(guests.value) || 1 : 1;
-    if (guestCount < 1 || guestCount > 6) {
-      if (formError) formError.innerText = 'Guests must be between 1 and 6.';
-      return;
-    }
+    if (guestCount < 1 || guestCount > 6) { if (formError) formError.innerText = 'Guests must be between 1 and 6.'; return; }
 
     const nights = Math.ceil((outDate - inDate) / (1000 * 60 * 60 * 24));
     const total = nights * currentPrice;
     const advance = Math.round(total * 0.3);
-    
-    currentTotal = total;
-    currentAdvance = advance;
+    currentTotal = total; currentAdvance = advance;
 
     let userIP = "Unknown";
-    try {
-      const ipResponse = await fetch('https://api.ipify.org?format=json');
-      const ipData = await ipResponse.json();
-      userIP = ipData.ip;
-    } catch (err) {
-      console.log("Could not fetch IP", err);
-    }
+    try { const r = await fetch('https://api.ipify.org?format=json'); const d = await r.json(); userIP = d.ip; } catch (err) {}
 
     const payload = {
       timestamp: new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }),
-      room: currentRoom,
-      pricePerNight: currentPrice,
-      checkin: checkinInput ? checkinInput.value : '',
-      checkout: checkoutInput ? checkoutInput.value : '',
-      nights: nights,
-      guests: guestCount,
-      totalAmount: total,
-      advance30: advance,
-      fullName: name,
-      phone: phone,
-      email: email,
+      room: currentRoom, pricePerNight: currentPrice, checkin: checkinInput.value, checkout: checkoutInput.value,
+      nights: nights, guests: guestCount, totalAmount: total, advance30: advance,
+      fullName: name, phone: phone, email: email, idCard: 'N/A', 
+      idPhotoBase64: currentPhotoBase64, idPhotoMimeType: currentPhotoMimeType, idPhotoName: currentPhotoName,
       ipAddress: userIP
     };
 
@@ -415,7 +355,7 @@ if (submitBtn) {
     submitBtn.disabled = true;
 
     try {
-      await submitToSheets(payload);
+      await fetch(APPS_SCRIPT_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) });
       
       const successTotal = document.getElementById('successTotal');
       const successAdvance = document.getElementById('successAdvance');
@@ -429,7 +369,6 @@ if (submitBtn) {
       
     } catch (error) {
       if (formError) formError.innerText = 'Submission failed. Please try again.';
-      console.error(error);
     } finally {
       submitBtn.innerHTML = originalText;
       submitBtn.disabled = false;
@@ -439,71 +378,62 @@ if (submitBtn) {
 
 // ========== WHATSAPP CONFIRMATION ==========
 const whatsappBtn = document.getElementById('whatsappConfirmBtn');
-
 if (whatsappBtn) {
   whatsappBtn.addEventListener('click', () => {
     const phoneNumber = '8801819077914';
-    const message = encodeURIComponent(
-      `Hi Mermaid Resort! I just submitted a booking for ${currentGuestName || 'a guest'}. I am sending the 30% advance of ৳${currentAdvance.toLocaleString()} now. Please confirm my reservation.`
-    );
+    const message = encodeURIComponent(`Hi Mermaid Resort! I just submitted a booking for ${currentGuestName || 'a guest'}. I am sending the 30% advance of ৳${currentAdvance.toLocaleString()} now. Please confirm my reservation.`);
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   });
 }
 
-// ========== WEB3FORMS CONTACT FORM ==========
+// ========== DYNAMIC CONTACT FORM BUTTON STATUS ==========
 const contactForm = document.getElementById('contactForm');
-const contactResult = document.getElementById('contactResult');
+const contactSubmitBtn = document.getElementById('contactSubmitBtn');
 
-if (contactForm) {
+if (contactForm && contactSubmitBtn) {
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
+    const originalText = contactSubmitBtn.innerHTML;
+    contactSubmitBtn.innerHTML = '<span class="loading-dots">Sending</span>';
+    contactSubmitBtn.disabled = true;
+
     const formData = new FormData(contactForm);
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
-    
-    contactResult.innerHTML = "Sending...";
-    contactResult.className = "text-sm text-center font-medium mt-4 text-cyan-400 block";
-    contactResult.classList.remove("hidden");
 
     fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: json
     })
     .then(async (response) => {
       let json = await response.json();
       if (response.status == 200) {
-        contactResult.innerHTML = "Message sent successfully! We'll be in touch.";
-        contactResult.classList.remove("text-cyan-400", "text-red-400");
-        contactResult.classList.add("text-green-400");
+        contactSubmitBtn.innerHTML = 'Message Sent ✓';
+        contactSubmitBtn.classList.replace('bg-red-600', 'bg-green-600');
+        contactSubmitBtn.classList.replace('hover:bg-red-700', 'hover:bg-green-700');
       } else {
-        console.log(response);
-        contactResult.innerHTML = json.message || "Something went wrong!";
-        contactResult.classList.remove("text-cyan-400", "text-green-400");
-        contactResult.classList.add("text-red-400");
+        contactSubmitBtn.innerHTML = 'Error. Try Again';
       }
     })
     .catch(error => {
-      console.log(error);
-      contactResult.innerHTML = "Something went wrong! Please try again later.";
-      contactResult.classList.remove("text-cyan-400", "text-green-400");
-      contactResult.classList.add("text-red-400");
+      contactSubmitBtn.innerHTML = 'Error. Try Again';
     })
-    .then(function() {
+    .finally(() => {
       contactForm.reset();
+      // Revert button back to normal after 4 seconds
       setTimeout(() => {
-        contactResult.classList.add("hidden");
-      }, 5000);
+        contactSubmitBtn.innerHTML = originalText;
+        contactSubmitBtn.disabled = false;
+        contactSubmitBtn.classList.replace('bg-green-600', 'bg-red-600');
+        contactSubmitBtn.classList.replace('hover:bg-green-700', 'hover:bg-red-700');
+      }, 4000);
     });
   });
 }
 
 // ========== BACK TO TOP BUTTON ==========
 const backToTopBtn = document.getElementById('backToTopBtn');
-
 if (backToTopBtn) {
   window.addEventListener('scroll', () => {
     if (window.scrollY > 500) {
@@ -514,11 +444,7 @@ if (backToTopBtn) {
       backToTopBtn.classList.remove('opacity-100', 'visible', 'translate-y-0');
     }
   });
-
   backToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
-
-// Re-initialize icons
-lucide.createIcons();

@@ -3,30 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mermaid Resort - Saint Martin's Island</title>
+    
+    <title>Mermaid Beach Resort - Saint Martin's Island</title>
+    <meta name="title" content="Mermaid Beach Resort - Saint Martin's Island" />
+    <meta name="description" content="Book your stay at Mermaid Beach Resort, Saint Martin's Island. Experience luxury suites, oceanfront views, and premium island hospitality in Bangladesh." />
+    <meta name="keywords" content="Mermaid Resort, Saint Martin Island, Bangladesh Resort, Beachfront Hotel, Saint Martin Booking, Coral Island Hotel, Cox's Bazar,Affordable room price" />
+    
+    <link rel="canonical" href="https://mermaid.trionine.xyz/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mermaid.trionine.xyz/" />
+    <meta property="og:title" content="Mermaid Beach Resort - Saint Martin's Island" />
+    <meta property="og:description" content="Book your stay at Mermaid Beach Resort. Experience luxury suites, oceanfront views, and premium island hospitality." />
+    <meta property="og:image" content="https://i.postimg.cc/wv9h2j7z/mermaid-resort.jpg" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Resort",
+      "name": "Mermaid Beach Resort",
+      "image": "https://i.postimg.cc/wv9h2j7z/mermaid-resort.jpg",
+      "@id": "",
+      "url": "https://mermaid.trionine.xyz",
+      "telephone": "+8801819077914",
+      "email": "mermaid.com.bd@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Mermaid Rd",
+        "addressLocality": "Saint Martin's Island",
+        "addressRegion": "Cox's Bazar",
+        "postalCode": "4762",
+        "addressCountry": "BD"
+      },
+      "priceRange": "৳3500 - ৳8000",
+      "sameAs": [
+        "https://www.facebook.com/saintmrtin",
+        "https://maps.app.goo.gl/DWN7BiUi3a7Eds8c7",
+        "https://www.google.com/travel/hotels/s/tRm7Ym7j8Yy91ihb6"
+      ]
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
-    />
+    <link rel="icon" type="image/ico" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden">
-    <!-- Navigation -->
+  <body class="min-h-screen bg-[#0a0a0a] text-gray-200 overflow-x-hidden">
     <nav
       id="navbar"
-      class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-6"
+      class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-6 border-b border-transparent"
     >
       <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-3">
           <div
-            class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center"
+            class="w-10 h-10 bg-red-600 flex items-center justify-center rounded-sm"
           >
             <i data-lucide="palmtree" class="w-5 h-5 text-white"></i>
           </div>
-          <span class="text-xl font-semibold tracking-wide"
+          <span class="text-xl font-bold tracking-widest text-white uppercase"
             >Mermaid Resort</span
           >
         </div>
@@ -34,85 +71,95 @@
         <div class="hidden md:flex items-center gap-8">
           <a
             href="#home"
-            class="text-gray-300 hover:text-cyan-400 transition-colors text-sm tracking-wider uppercase"
+            class="text-gray-400 hover:text-red-500 font-medium transition-colors text-sm uppercase tracking-wider"
             >Home</a
           >
           <a
             href="#about"
-            class="text-gray-300 hover:text-cyan-400 transition-colors text-sm tracking-wider uppercase"
+            class="text-gray-400 hover:text-red-500 font-medium transition-colors text-sm uppercase tracking-wider"
             >About</a
           >
           <a
             href="#rooms"
-            class="text-gray-300 hover:text-cyan-400 transition-colors text-sm tracking-wider uppercase"
+            class="text-gray-400 hover:text-red-500 font-medium transition-colors text-sm uppercase tracking-wider"
             >Rooms</a
           >
           <a
+            href="menu.html"
+            class="text-gray-400 hover:text-red-500 font-medium transition-colors text-sm uppercase tracking-wider"
+            >Dining</a
+          >
+          <a
             href="#amenities"
-            class="text-gray-300 hover:text-cyan-400 transition-colors text-sm tracking-wider uppercase"
+            class="text-gray-400 hover:text-red-500 font-medium transition-colors text-sm uppercase tracking-wider"
             >Amenities</a
           >
           <a
             href="#gallery"
-            class="text-gray-300 hover:text-cyan-400 transition-colors text-sm tracking-wider uppercase"
+            class="text-gray-400 hover:text-red-500 font-medium transition-colors text-sm uppercase tracking-wider"
             >Gallery</a
           >
           <a
             href="#contact"
-            class="text-gray-300 hover:text-cyan-400 transition-colors text-sm tracking-wider uppercase"
+            class="text-gray-400 hover:text-red-500 font-medium transition-colors text-sm uppercase tracking-wider"
             >Contact</a
           >
           <button
             id="navBookBtn"
-            class="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
+            class="px-6 py-2.5 bg-red-600 text-white rounded-sm text-sm font-bold uppercase tracking-wider hover:bg-red-700 transition-all"
           >
             Book Now
           </button>
         </div>
 
-        <button id="mobile-menu-btn" class="md:hidden text-white">
+        <button id="mobile-menu-btn" class="md:hidden text-white" aria-expanded="false" aria-controls="mobile-menu">
           <i data-lucide="menu" id="menu-icon"></i>
         </button>
       </div>
 
       <div
         id="mobile-menu"
-        class="hidden md:hidden absolute top-full left-0 right-0 bg-[#0a0a0a] border-t border-white/10 shadow-2xl"
+        class="hidden md:hidden absolute top-full left-0 right-0 bg-[#0a0a0a] border-b border-[#222]"
       >
         <div class="flex flex-col p-6 gap-4">
           <a
             href="#home"
-            class="mobile-link text-gray-300 hover:text-cyan-400 transition-colors text-left py-2"
+            class="mobile-link text-gray-300 hover:text-red-500 py-3 border-b border-[#222] uppercase tracking-wider text-sm"
             >Home</a
           >
           <a
             href="#about"
-            class="mobile-link text-gray-300 hover:text-cyan-400 transition-colors text-left py-2"
+            class="mobile-link text-gray-300 hover:text-red-500 py-3 border-b border-[#222] uppercase tracking-wider text-sm"
             >About</a
           >
           <a
             href="#rooms"
-            class="mobile-link text-gray-300 hover:text-cyan-400 transition-colors text-left py-2"
+            class="mobile-link text-gray-300 hover:text-red-500 py-3 border-b border-[#222] uppercase tracking-wider text-sm"
             >Rooms</a
           >
           <a
+            href="menu.html"
+            class="mobile-link text-gray-300 hover:text-red-500 py-3 border-b border-[#222] uppercase tracking-wider text-sm"
+            >Dining</a
+          >
+          <a
             href="#amenities"
-            class="mobile-link text-gray-300 hover:text-cyan-400 transition-colors text-left py-2"
+            class="mobile-link text-gray-300 hover:text-red-500 py-3 border-b border-[#222] uppercase tracking-wider text-sm"
             >Amenities</a
           >
           <a
             href="#gallery"
-            class="mobile-link text-gray-300 hover:text-cyan-400 transition-colors text-left py-2"
+            class="mobile-link text-gray-300 hover:text-red-500 py-3 border-b border-[#222] uppercase tracking-wider text-sm"
             >Gallery</a
           >
           <a
             href="#contact"
-            class="mobile-link text-gray-300 hover:text-cyan-400 transition-colors text-left py-2"
+            class="mobile-link text-gray-300 hover:text-red-500 py-3 uppercase tracking-wider text-sm"
             >Contact</a
           >
           <button
             id="mobileBookBtn"
-            class="mt-4 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-sm font-medium"
+            class="mt-2 w-full py-3 bg-red-600 text-white rounded-sm text-sm font-bold uppercase tracking-widest"
           >
             Book Now
           </button>
@@ -120,7 +167,6 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
     <section
       id="home"
       class="relative h-screen flex items-center justify-center overflow-hidden"
@@ -129,813 +175,657 @@
         <img
           src="https://i.postimg.cc/wv9h2j7z/mermaid-resort.jpg"
           alt="Saint Martin's Island"
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover opacity-60 grayscale-[30%]"
+          loading="eager" decoding="async"
         />
         <div
-          class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/60 via-[#0a0a0a]/40 to-[#0a0a0a]"
+          class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-[#0a0a0a]/50 to-[#0a0a0a]"
         ></div>
       </div>
 
       <div
         class="relative z-10 text-center px-6 max-w-4xl mx-auto fade-in-up reveal-on-load"
       >
-        <p class="text-cyan-400 tracking-[0.3em] uppercase text-sm mb-4">
+        <p
+          class="text-red-500 tracking-[0.4em] font-semibold uppercase text-xs mb-6"
+        >
           Welcome to Paradise
         </p>
         <h1
-          class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-100 to-cyan-200 bg-clip-text text-transparent"
+          class="text-5xl md:text-7xl font-bold mb-6 text-white uppercase tracking-tight"
         >
           Mermaid Resort
         </h1>
-        <p class="text-xl md:text-2xl text-gray-300 mb-8 font-light">
+        <p
+          class="text-lg md:text-xl text-gray-400 mb-10 font-light tracking-wide"
+        >
           Saint Martin's Island, Bangladesh
         </p>
-        <div class="flex items-center justify-center gap-2 mb-8">
-          <i
-            data-lucide="star"
-            class="w-5 h-5 fill-yellow-400 text-yellow-400"
-          ></i>
-          <span class="text-lg">4.2</span>
-          <span class="text-gray-400">(400+ reviews)</span>
-        </div>
+
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             id="heroBookBtn"
-            class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full font-medium hover:opacity-90 transition-opacity"
+            class="px-8 py-4 bg-red-600 text-white rounded-sm font-bold uppercase tracking-widest hover:bg-red-700 transition-colors"
           >
             Book Your Stay
           </button>
           <a
             href="#about"
-            class="px-8 py-4 border border-white/30 rounded-full font-medium hover:bg-white/10 transition-colors inline-block text-center"
+            class="px-8 py-4 bg-transparent text-white border border-[#333] rounded-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors inline-block text-center"
           >
             Explore Resort
           </a>
         </div>
       </div>
-
-      <div
-        class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce-small"
-      >
-        <div
-          class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2"
-        >
-          <div class="w-1 h-2 bg-white/50 rounded-full"></div>
-        </div>
-      </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-24 px-6 bg-[#0d0d0d]">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-          <div class="fade-in-left scroll-reveal">
-            <p class="text-cyan-400 tracking-[0.2em] uppercase text-sm mb-4">
-              About Us
-            </p>
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">
-              Experience Paradise on
-              <span class="text-cyan-400">Saint Martin's Island</span>
-            </h2>
-            <p class="text-gray-400 text-lg leading-relaxed mb-6">
-              Nestled on the pristine shores of the Bay of Bengal, Mermaid
-              Resort offers an unparalleled escape to Bangladesh's only coral
-              island. Our resort combines natural beauty with modern luxury.
-            </p>
-            <p class="text-gray-400 text-lg leading-relaxed mb-8">
-              Whether you're seeking a romantic getaway, an adventure of scuba
-              diving in crystal-clear waters, or simply relaxation on pristine
-              beaches, Mermaid Resort is your gateway to paradise.
-            </p>
+    <section
+      id="about"
+      class="py-24 px-6 bg-[#0f0f0f] border-y border-[#1a1a1a]"
+    >
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div class="fade-in-left scroll-reveal">
+          <span
+            class="text-red-500 font-bold tracking-[0.2em] uppercase text-xs mb-4 block"
+            >About Us</span
+          >
+          <h2
+            class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight uppercase"
+          >
+            Experience Paradise
+          </h2>
+          <p class="text-gray-400 text-lg leading-relaxed mb-6 font-light">
+            Nestled on the pristine shores of the Bay of Bengal, Mermaid Resort
+            offers an unparalleled escape to Bangladesh's only coral island.
+          </p>
+          <div class="flex items-center gap-3 mt-8">
             <div
-              class="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+              class="w-10 h-10 bg-[#111] border border-[#333] flex items-center justify-center rounded-sm"
             >
-              <i data-lucide="map-pin" class="w-5 h-5"></i>
-              <a
-                href="https://maps.app.goo.gl/GHtx5SJNUcHfQC9m9"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="hover:underline"
-              >
-                Mermaid Rd, Saint Martin's Island, Cox's Bazar 4762, Bangladesh
-              </a>
+              <i data-lucide="map-pin" class="w-4 h-4 text-red-500"></i>
             </div>
+            <a
+              href="https://maps.app.goo.gl/DWN7BiUi3a7Eds8c7"
+              target="_blank"
+              class="text-gray-300 font-medium text-sm hover:text-red-500 transition-colors uppercase tracking-widest"
+            >
+              Mermaid Rd, Saint Martin
+            </a>
           </div>
-
-          <div class="relative fade-in-right scroll-reveal">
-            <div class="relative z-10 rounded-2xl overflow-hidden">
-              <img
-                src="https://i.postimg.cc/7LgwnxTs/1.jpg"
-                alt="Resort view"
-                class="w-full h-[500px] object-cover"
-              />
-            </div>
-            <div
-              class="absolute -bottom-6 -left-6 w-48 h-48 bg-cyan-500/20 rounded-full blur-3xl"
-            ></div>
-            <div
-              class="absolute -top-6 -right-6 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl"
-            ></div>
-          </div>
+        </div>
+        <div class="relative fade-in-right scroll-reveal">
+          <img
+            src="https://i.postimg.cc/7LgwnxTs/1.jpg"
+            class="rounded-sm border border-[#222] w-full h-[500px] object-cover grayscale-[20%]"
+            alt="Resort View"
+            loading="lazy" decoding="async"
+          />
         </div>
       </div>
     </section>
 
-    <!-- Rooms Section (Dynamically populated) -->
     <section id="rooms" class="py-24 px-6 bg-[#0a0a0a]">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16 fade-in-up scroll-reveal">
-          <p class="text-cyan-400 tracking-[0.2em] uppercase text-sm mb-4">
-            Accommodation
-          </p>
-          <h2 class="text-4xl md:text-5xl font-bold">Luxury Rooms & Suites</h2>
+          <span
+            class="text-red-500 font-bold tracking-[0.2em] uppercase text-xs mb-4 block"
+            >Accommodation</span
+          >
+          <h2
+            class="text-4xl md:text-5xl font-bold text-white tracking-tight uppercase"
+          >
+            Luxury Suites
+          </h2>
         </div>
-
-        <div id="rooms-container" class="grid md:grid-cols-3 gap-8"></div>
+        <div id="rooms-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"></div>
       </div>
     </section>
 
-    <!-- Amenities Section -->
-    <section id="amenities" class="py-24 px-6 bg-[#0d0d0d]">
+    <section
+      id="amenities"
+      class="py-24 px-6 bg-[#0a0a0a]"
+    >
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16 fade-in-up scroll-reveal">
-          <p class="text-cyan-400 tracking-[0.2em] uppercase text-sm mb-4">
-            Experience
-          </p>
-          <h2 class="text-4xl md:text-5xl font-bold">World-Class Amenities</h2>
+          <span
+            class="text-red-500 font-bold tracking-[0.2em] uppercase text-xs mb-4 block"
+            >Experience</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-bold text-white tracking-tight uppercase"
+          >
+            Exclusive Amenities
+          </h2>
         </div>
-        <div class="grid md:grid-cols-4 gap-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
           <div
-            class="group p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all duration-300 text-center fade-in-up scroll-reveal"
+            class="p-8 bg-[#111] border border-[#222] rounded-sm text-center hover:border-red-500 transition-colors fade-in-up scroll-reveal"
+          >
+            <i
+              data-lucide="waves"
+              class="w-8 h-8 text-red-500 mx-auto mb-4"
+            ></i>
+            <h3
+              class="text-md font-bold text-white uppercase tracking-wider mb-2"
+            >
+              Beach Access
+            </h3>
+            <p class="text-gray-500 text-xs uppercase tracking-widest">
+              Private Area
+            </p>
+          </div>
+          <div
+            class="p-8 bg-[#111] border border-[#222] rounded-sm text-center hover:border-red-500 transition-colors fade-in-up scroll-reveal"
             style="transition-delay: 0.1s"
           >
-            <div
-              class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-600/20 flex items-center justify-center group-hover:scale-110 transition-transform"
+            <i
+              data-lucide="utensils-crossed"
+              class="w-8 h-8 text-red-500 mx-auto mb-4"
+            ></i>
+            <h3
+              class="text-md font-bold text-white uppercase tracking-wider mb-2"
             >
-              <i data-lucide="waves" class="w-8 h-8 text-cyan-400"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-2">Beach Access</h3>
-            <p class="text-gray-400">Private beach area</p>
+              Restaurant
+            </h3>
+            <p class="text-gray-500 text-xs uppercase tracking-widest">
+              Local Cuisine
+            </p>
           </div>
           <div
-            class="group p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all duration-300 text-center fade-in-up scroll-reveal"
+            class="p-8 bg-[#111] border border-[#222] rounded-sm text-center hover:border-red-500 transition-colors fade-in-up scroll-reveal"
             style="transition-delay: 0.2s"
           >
-            <div
-              class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-600/20 flex items-center justify-center group-hover:scale-110 transition-transform"
+            <i
+              data-lucide="coffee"
+              class="w-8 h-8 text-red-500 mx-auto mb-4"
+            ></i>
+            <h3
+              class="text-md font-bold text-white uppercase tracking-wider mb-2"
             >
-              <i
-                data-lucide="utensils-crossed"
-                class="w-8 h-8 text-cyan-400"
-              ></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-2">Restaurant</h3>
-            <p class="text-gray-400">Fresh seafood & local cuisine</p>
+              Café
+            </h3>
+            <p class="text-gray-500 text-xs uppercase tracking-widest">
+              Coffee & Snacks
+            </p>
           </div>
           <div
-            class="group p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all duration-300 text-center fade-in-up scroll-reveal"
+            class="p-8 bg-[#111] border border-[#222] rounded-sm text-center hover:border-red-500 transition-colors fade-in-up scroll-reveal"
             style="transition-delay: 0.3s"
           >
-            <div
-              class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-600/20 flex items-center justify-center group-hover:scale-110 transition-transform"
+            <i data-lucide="ship" class="w-8 h-8 text-red-500 mx-auto mb-4"></i>
+            <h3
+              class="text-md font-bold text-white uppercase tracking-wider mb-2"
             >
-              <i data-lucide="coffee" class="w-8 h-8 text-cyan-400"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-2">Café</h3>
-            <p class="text-gray-400">Coffee & snacks</p>
-          </div>
-          <div
-            class="group p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all duration-300 text-center fade-in-up scroll-reveal"
-            style="transition-delay: 0.4s"
-          >
-            <div
-              class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-600/20 flex items-center justify-center group-hover:scale-110 transition-transform"
-            >
-              <i data-lucide="ship" class="w-8 h-8 text-cyan-400"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-2">Boat Tours</h3>
-            <p class="text-gray-400">Island hopping</p>
+              Boat Tours
+            </h3>
+            <p class="text-gray-500 text-xs uppercase tracking-widest">
+              Island Hopping
+            </p>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Gallery Section -->
     <section id="gallery" class="py-24 px-6 bg-[#0a0a0a]">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16 fade-in-up scroll-reveal">
-          <p class="text-cyan-400 tracking-[0.2em] uppercase text-sm mb-4">
-            Gallery
-          </p>
-          <h2 class="text-4xl md:text-5xl font-bold">Captured Moments</h2>
+          <span
+            class="text-red-500 font-bold tracking-[0.2em] uppercase text-xs mb-4 block"
+            >Visuals</span
+          >
+          <h2
+            class="text-4xl md:text-5xl font-bold text-white tracking-tight uppercase"
+          >
+            Experience Gallery
+          </h2>
         </div>
-
         <div
-          class="relative rounded-2xl overflow-hidden h-[600px] fade-in-up scroll-reveal"
+          class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[250px] fade-in-up scroll-reveal"
         >
-          <img
-            src="https://i.postimg.cc/3JkxsQGQ/imagey_E_(7).jpg"
-            class="gallery-slide absolute inset-0 w-full h-full object-cover opacity-100 z-10"
-          />
-          <img
-            src="https://i.postimg.cc/MKnpCJQg/imagey_E_(6).jpg"
-            class="gallery-slide absolute inset-0 w-full h-full object-cover opacity-100 z-10"
-          />
-          <img
-            src="https://i.postimg.cc/Wbd1BcZj/imagey_E_(8).jpg"
-            class="gallery-slide absolute inset-0 w-full h-full object-cover opacity-0 z-0"
-          />
-          <img
-            src="https://i.postimg.cc/5ND21K5j/imagey_E_(13).jpg"
-            class="gallery-slide absolute inset-0 w-full h-full object-cover opacity-0 z-0"
-          />
-
           <div
-            class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20"
-            id="gallery-dots"
+            class="md:col-span-2 md:row-span-2 relative group overflow-hidden border border-[#222] bg-[#111] cursor-pointer"
           >
-            <button
-              class="gallery-dot w-8 h-2 rounded-full transition-all bg-cyan-400"
-              onclick="window.goToSlide(0)"
-            ></button>
-            <button
-              class="gallery-dot w-2 h-2 rounded-full transition-all bg-white/30"
-              onclick="window.goToSlide(1)"
-            ></button>
-            <button
-              class="gallery-dot w-2 h-2 rounded-full transition-all bg-white/30"
-              onclick="window.goToSlide(2)"
-            ></button>
-            <button
-              class="gallery-dot w-2 h-2 rounded-full transition-all bg-white/30"
-              onclick="window.goToSlide(3)"
-            ></button>
+            <img
+              src="https://i.postimg.cc/3JkxsQGQ/imagey_E_(7).jpg"
+              class="w-full h-full object-cover grayscale-[40%] opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+              alt="Mermaid Resort View"
+              loading="lazy" decoding="async"
+            />
+            <div
+              class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/10 transition-colors duration-500 z-10 pointer-events-none"
+            ></div>
           </div>
-
-          <button
-            onclick="window.prevSlide()"
-            class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/30 flex items-center justify-center hover:bg-black/50 transition-colors z-20"
+          <div
+            class="relative group overflow-hidden border border-[#222] bg-[#111] cursor-pointer"
           >
-            <i data-lucide="chevron-left" class="w-6 h-6"></i>
-          </button>
-          <button
-            onclick="window.nextSlide()"
-            class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/30 flex items-center justify-center hover:bg-black/50 transition-colors z-20"
+            <img
+              src="https://i.postimg.cc/T1FM4BJg/imageye.jpg"
+              class="w-full h-full object-cover grayscale-[40%] opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+              alt="Resort Architecture"
+              loading="lazy" decoding="async"
+            />
+            <div
+              class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/10 transition-colors duration-500 z-10 pointer-events-none"
+            ></div>
+          </div>
+          <div
+            class="relative group overflow-hidden border border-[#222] bg-[#111] cursor-pointer"
           >
-            <i data-lucide="chevron-right" class="w-6 h-6"></i>
-          </button>
+            <img
+              src="https://i.postimg.cc/CLRx3pqP/imagey_E_(4).jpg"
+              class="w-full h-full object-cover grayscale-[40%] opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+              alt="Ocean View"
+              loading="lazy" decoding="async"
+            />
+            <div
+              class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/10 transition-colors duration-500 z-10 pointer-events-none"
+            ></div>
+          </div>
         </div>
       </div>
     </section>
+    <section id="contact" class="py-24 px-6 bg-[#0a0a0a]">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
+        <div class="fade-in-up scroll-reveal">
+          <span
+            class="text-red-500 font-bold tracking-[0.2em] uppercase text-xs mb-4 block"
+            >Contact</span
+          >
+          <h2
+            class="text-4xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tight"
+          >
+            Get in Touch
+          </h2>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 px-6 bg-[#0d0d0d]">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-16">
-          <div class="fade-in-up scroll-reveal">
-            <p class="text-cyan-400 tracking-[0.2em] uppercase text-sm mb-4">
-              Contact
-            </p>
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">Get in Touch</h2>
-            <p class="text-gray-400 text-lg mb-8">
-              Ready to experience paradise? Contact us to plan your perfect
-              getaway to Saint Martin's Island.
-            </p>
-
-            <div class="space-y-6">
-              <div class="flex items-start gap-4">
-                <div
-                  class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0"
-                >
-                  <i data-lucide="map-pin" class="w-5 h-5 text-cyan-400"></i>
-                </div>
-                <div>
-                  <h4 class="font-semibold mb-1">Address</h4>
-                  <a
-                    href="https://maps.app.goo.gl/GHtx5SJNUcHfQC9m9"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-gray-400 hover:text-cyan-400 transition-colors block"
-                  >
-                    Mermaid Rd, Saint Martin's Island, Cox's Bazar 4762,
-                    Bangladesh
-                  </a>
-                </div>
+          <div class="space-y-8 mt-10">
+            <div class="flex items-center gap-6">
+              <i data-lucide="phone" class="w-6 h-6 text-red-500"></i>
+              <div>
+                <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">
+                  Phone
+                </p>
+                <p class="text-white font-medium">+880 1819-077914</p>
               </div>
-
-              <div class="flex items-start gap-4">
-                <div
-                  class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0"
+            </div>
+            <div class="flex items-center gap-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-red-500"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              <div>
+                <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">
+                  Facebook
+                </p>
+                <a
+                  href="https://www.facebook.com/saintmrtin"
+                  target="_blank"
+                  class="text-white font-medium hover:text-red-500 transition-colors inline-block"
                 >
-                  <i data-lucide="phone" class="w-5 h-5 text-cyan-400"></i>
-                </div>
-                <div>
-                  <h4 class="font-semibold mb-1">Phone</h4>
-                  <a
-                    href="tel:+8801819077914"
-                    class="text-gray-400 hover:text-cyan-400 transition-colors"
-                    >+8801819-077914</a
-                  >
-                </div>
+                  Mermaid Resort St. Martin
+                </a>
               </div>
-
-              <div class="flex items-start gap-4">
-                <div
-                  class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0"
+            </div>
+            <div class="flex items-center gap-6">
+              <i data-lucide="mail" class="w-6 h-6 text-red-500"></i>
+              <div>
+                <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">
+                  Email
+                </p>
+                <p class="text-white font-medium">mermaid.com.bd@gmail.com</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-6">
+              <i data-lucide="map" class="w-6 h-6 text-red-500"></i>
+              <div>
+                <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">
+                  Google Hotels
+                </p>
+                <a
+                  href="https://www.google.com/travel/hotels/s/tRm7Ym7j8Yy91ihb6"
+                  target="_blank"
+                  class="text-white font-medium hover:text-red-500 transition-colors inline-block"
                 >
-                  <i data-lucide="mail" class="w-5 h-5 text-cyan-400"></i>
-                </div>
-                <div>
-                  <h4 class="font-semibold mb-1">Email</h4>
-                  <a
-                    href="mailto:info@mermaidresortsaintmartin.com"
-                    class="text-gray-400 hover:text-cyan-400 transition-colors"
-                    >mermaid.com.bd@gmail.com</a
-                  >
-                </div>
+                  View Listings & Reviews
+                </a>
               </div>
             </div>
           </div>
+        </div>
 
-          <div
-            class="bg-[#111] rounded-2xl p-8 border border-white/5 fade-in-up scroll-reveal"
-          >
-            <form class="space-y-6" id="contactForm">
-              <input
-                type="hidden"
-                name="access_key"
-                value="6a124176-a118-4e0b-9a60-10cd4722acca"
-              />
-
-              <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label class="block text-sm text-gray-400 mb-2">Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors"
-                    placeholder="Your name"
-                    required
-                  />
-                </div>
-                <div>
-                  <label class="block text-sm text-gray-400 mb-2">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors"
-                    placeholder="your@email.com"
-                    required
-                  />
-                </div>
+        <div
+          class="bg-[#111] border border-[#222] p-8 rounded-sm fade-in-up scroll-reveal"
+        >
+          <form class="space-y-6" id="contactForm">
+            <input
+              type="hidden"
+              name="access_key"
+              value="62ee231c-7531-4e9c-9e49-3a3c6d2f4689"
+            />
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label
+                  class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  name="name"
+                  class="input-field"
+                  placeholder="Your Name"
+                  required
+                />
               </div>
               <div>
-                <label class="block text-sm text-gray-400 mb-2">Message</label>
-                <textarea
-                  name="message"
-                  rows="4"
-                  class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors resize-none"
-                  placeholder="Tell us about your stay..."
+                <label
+                  class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  class="input-field"
+                  placeholder="yourname@email.com"
                   required
-                ></textarea>
+                />
               </div>
-
-              <div
-                id="contactResult"
-                class="hidden text-sm text-center font-medium"
-              ></div>
-
-              <button
-                type="submit"
-                class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+            </div>
+            <div>
+              <label
+                class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest"
+                >Message</label
               >
-                <i data-lucide="send" class="w-5 h-5"></i> Send Inquiry
-              </button>
-            </form>
-          </div>
+              <textarea
+                name="message"
+                rows="4"
+                class="input-field resize-none"
+                placeholder="Your message..."
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              id="contactSubmitBtn"
+              class="w-full py-4 bg-red-600 text-white rounded-sm font-bold uppercase tracking-widest hover:bg-red-700 transition-colors flex justify-center items-center"
+            >
+              Send Message
+            </button>
+          </form>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-20 px-6 bg-[#050505] border-t border-white/5 relative">
-      <div class="max-w-6xl mx-auto flex flex-col items-center">
-        <div class="text-center mb-16">
-          <h2
-            class="text-3xl font-bold tracking-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-4 uppercase"
-          >
-            Mermaid Resort
-          </h2>
-          <p class="text-gray-400 max-w-2xl mx-auto text-sm leading-relaxed">
-            Pushing the boundaries of hospitality on Saint Martin's Island
-            through serene design, exclusive comfort, and unforgettable
-            beachfront experiences.
-          </p>
-        </div>
-
-        <div
-          class="grid grid-cols-2 md:grid-cols-4 gap-12 w-full mb-16 text-left md:text-left"
+    <footer
+      class="py-12 px-6 bg-[#0f0f0f] border-t border-[#1a1a1a] text-center"
+    >
+      <h2 class="text-2xl font-bold text-white mb-6 tracking-[0.2em] uppercase">
+        Mermaid Resort
+      </h2>
+      <p class="text-gray-600 text-xs uppercase tracking-widest mb-2">
+        © 2026 Mermaid Resort. All rights reserved.
+      </p>
+      <p class="text-gray-600 text-[10px] uppercase tracking-widest">
+        Developed by
+        <a
+          href="https://trionine.xyz"
+          target="_blank"
+          class="text-red-500 hover:text-white transition-colors"
+          >Trionine</a
         >
-          <div>
-            <h4 class="text-white font-semibold mb-6 text-lg">Quick Links</h4>
-            <ul class="space-y-4 text-sm text-gray-400">
-              <li>
-                <a href="#home" class="hover:text-cyan-400 transition-colors"
-                  >Home</a
-                >
-              </li>
-              <li>
-                <a href="#about" class="hover:text-cyan-400 transition-colors"
-                  >About Us</a
-                >
-              </li>
-              <li>
-                <a href="#rooms" class="hover:text-cyan-400 transition-colors"
-                  >Rooms & Suites</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#amenities"
-                  class="hover:text-cyan-400 transition-colors"
-                  >Amenities</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="text-white font-semibold mb-6 text-lg">Experiences</h4>
-            <ul class="space-y-4 text-sm text-gray-400">
-              <li>
-                <a href="#gallery" class="hover:text-cyan-400 transition-colors"
-                  >Photo Gallery</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#amenities"
-                  class="hover:text-cyan-400 transition-colors"
-                  >Dining</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#amenities"
-                  class="hover:text-cyan-400 transition-colors"
-                  >Boat Tours</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="text-white font-semibold mb-6 text-lg">Contact</h4>
-            <ul class="space-y-4 text-sm text-gray-400">
-              <li>
-                <a
-                  href="https://maps.app.goo.gl/GHtx5SJNUcHfQC9m9"
-                  target="_blank"
-                  class="hover:text-cyan-400 transition-colors"
-                  >Mermaid Beach Resort</a
-                >
-              </li>
-              <li>
-                <a
-                  href="tel:+8801819077914"
-                  class="hover:text-cyan-400 transition-colors"
-                  >+880 1819-077914</a
-                >
-              </li>
-              <li>
-                <a
-                  href="mailto:info@mermaidresortsaintmartin.com"
-                  class="hover:text-cyan-400 transition-colors"
-                  >Email Us</a
-                >
-              </li>
-              <li>
-                <a href="#contact" class="hover:text-cyan-400 transition-colors"
-                  >Support</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="text-white font-semibold mb-6 text-lg">Legal</h4>
-            <ul class="space-y-4 text-sm text-gray-400">
-              <li>
-                <a href="#" class="hover:text-cyan-400 transition-colors"
-                  >Privacy Policy</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-cyan-400 transition-colors"
-                  >Terms of Service</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-cyan-400 transition-colors"
-                  >Cookie Policy</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-cyan-400 transition-colors"
-                  >Cancellation</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex gap-6 mb-12">
-          <a
-            href="#"
-            class="text-gray-400 hover:text-cyan-400 transition-all hover:-translate-y-1"
-            ><i data-lucide="twitter" class="w-5 h-5"></i
-          ></a>
-          <a
-            href="#"
-            class="text-gray-400 hover:text-cyan-400 transition-all hover:-translate-y-1"
-            ><i data-lucide="instagram" class="w-5 h-5"></i
-          ></a>
-          <a
-            href="#"
-            class="text-gray-400 hover:text-cyan-400 transition-all hover:-translate-y-1"
-            ><i data-lucide="facebook" class="w-5 h-5"></i
-          ></a>
-        </div>
-
-        <div class="w-full border-t border-white/5 pt-8 text-center">
-          <p class="text-gray-500 text-sm">
-            © 2026 Mermaid Resort. All rights reserved.
-          </p>
-        </div>
-      </div>
+      </p>
     </footer>
 
-    <!-- WhatsApp & Back to Top Buttons -->
     <div class="fixed bottom-8 right-8 flex flex-col items-center gap-4 z-50">
       <button
         id="backToTopBtn"
-        class="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 flex items-center justify-center text-white hover:opacity-90 transition-all duration-300 shadow-lg shadow-cyan-500/20 opacity-0 invisible translate-y-4"
+        class="w-12 h-12 rounded-sm bg-[#111] border border-[#333] text-white hover:border-red-500 transition-all opacity-0 invisible translate-y-4 flex items-center justify-center"
       >
         <i data-lucide="arrow-up" class="w-5 h-5"></i>
       </button>
-
       <a
-        href="https://wa.me/8801819077914?text=Hello%20Mermaid%20Resort!%20I%20would%20like%20to%20know%20more%20about%20your%20rooms."
+        href="https://wa.me/8801819077914"
         target="_blank"
-        rel="noopener noreferrer"
-        class="relative w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center text-white hover:scale-110 hover:shadow-green-500/50 transition-all duration-300 shadow-lg shadow-green-500/30 group"
+        class="w-12 h-12 rounded-sm bg-[#25D366] flex items-center justify-center text-white hover:bg-[#1ebe5d] transition-colors shadow-lg"
       >
-        <span
-          class="absolute right-[calc(100%+16px)] top-1/2 -translate-y-1/2 bg-black/80 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap backdrop-blur-sm border border-white/10 pointer-events-none"
-        >
-          Chat with us
-        </span>
-        <i data-lucide="message-circle" class="w-7 h-7 fill-white"></i>
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
       </a>
     </div>
 
-    <!-- Booking Modal -->
-    <div
-      id="bookingModal"
-      class="fixed inset-0 z-50 hidden overflow-y-auto"
-      aria-labelledby="modal-title"
-      role="dialog"
-      aria-modal="true"
-    >
+    <div id="bookingModal" class="fixed inset-0 z-[100] hidden overflow-y-auto">
       <div
-        class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0"
+        class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:p-0"
       >
         <div
-          class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity"
+          class="fixed inset-0 bg-black/90 backdrop-blur-sm transition-opacity"
           aria-hidden="true"
         ></div>
         <div
-          class="inline-block align-bottom bg-[#111] rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl w-full border border-cyan-500/30"
+          class="inline-block align-bottom bg-[#0a0a0a] border border-[#333] rounded-sm text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl w-full"
         >
           <div id="bookingFormView">
             <div
-              class="flex items-center justify-between p-6 border-b border-white/10"
+              class="flex items-center justify-between p-6 border-b border-[#222]"
             >
-              <h3 class="text-2xl font-semibold text-cyan-400" id="modal-title">
-                Complete Your Booking
+              <h3
+                class="text-xl font-bold text-white uppercase tracking-widest"
+                id="modal-title"
+              >
+                Book Room
               </h3>
               <button
                 id="closeModalBtn"
-                class="text-gray-400 hover:text-white transition-colors"
+                class="text-gray-500 hover:text-red-500 transition-colors"
               >
-                <i data-lucide="x" class="w-6 h-6"></i>
+                <i data-lucide="x" class="w-5 h-5"></i>
               </button>
             </div>
-
-            <div class="p-6">
+            <div class="p-8">
               <div
-                class="flex flex-wrap items-center justify-between gap-4 pb-4 mb-4 border-b border-white/10"
+                class="flex flex-wrap items-center justify-between gap-4 p-4 mb-6 bg-[#111] border border-[#222] rounded-sm"
               >
                 <div>
-                  <span class="text-gray-400 text-sm">Selected room</span>
+                  <span
+                    class="text-red-500 text-xs font-bold uppercase tracking-widest"
+                    >Selected</span
+                  >
                   <p
                     id="selectedRoomDisplay"
-                    class="text-xl font-semibold text-cyan-400"
+                    class="text-lg font-medium text-white"
                   >
-                    Not selected
+                    Room
                   </p>
                 </div>
                 <div
                   id="pricePerNightDisplay"
-                  class="text-lg price-tag px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30"
+                  class="text-md font-bold text-red-500"
                 >
                   —
                 </div>
               </div>
-
-              <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div class="grid md:grid-cols-2 gap-5 mb-5">
                 <div>
-                  <label class="block text-sm text-gray-400 mb-1"
-                    >Check‑in *</label
-                  >
-                  <input
+                  <label
+                    class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest"
+                    >Check‑in</label
+                  ><input
                     type="text"
                     id="checkin"
-                    class="input-field w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 datepicker"
+                    class="input-field datepicker"
                     placeholder="Select date"
                   />
                 </div>
                 <div>
-                  <label class="block text-sm text-gray-400 mb-1"
-                    >Check‑out *</label
-                  >
-                  <input
+                  <label
+                    class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest"
+                    >Check‑out</label
+                  ><input
                     type="text"
                     id="checkout"
-                    class="input-field w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 datepicker"
+                    class="input-field datepicker"
                     placeholder="Select date"
                   />
                 </div>
               </div>
-
-              <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div class="grid md:grid-cols-2 gap-5 mb-5">
                 <div>
-                  <label class="block text-sm text-gray-400 mb-1"
-                    >Guests *</label
-                  >
-                  <input
+                  <label
+                    class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest"
+                    >Guests</label
+                  ><input
                     type="number"
                     id="guests"
                     min="1"
-                    max="6"
+                    max="4"
                     value="2"
-                    class="input-field w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500"
+                    class="input-field"
                   />
                 </div>
                 <div>
-                  <label class="block text-sm text-gray-400 mb-1"
-                    >Full Name *</label
-                  >
-                  <input
+                  <label
+                    class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest"
+                    >Full Name</label
+                  ><input
                     type="text"
                     id="fullName"
-                    placeholder="e.g. John Doe"
-                    class="input-field w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500"
+                    placeholder="John Doe"
+                    class="input-field"
                   />
                 </div>
               </div>
-
-              <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div class="grid md:grid-cols-2 gap-5 mb-6">
                 <div>
-                  <label class="block text-sm text-gray-400 mb-1"
-                    >Phone *</label
-                  >
-                  <input
+                  <label
+                    class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest"
+                    >Phone</label
+                  ><input
                     type="tel"
                     id="phone"
                     placeholder="01XXXXXXXXX"
-                    class="input-field w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500"
+                    class="input-field"
                   />
                 </div>
                 <div>
-                  <label class="block text-sm text-gray-400 mb-1"
-                    >Email *</label
-                  >
-                  <input
+                  <label
+                    class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest"
+                    >Email</label
+                  ><input
                     type="email"
                     id="email"
-                    placeholder="you@example.com"
-                    class="input-field w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500"
+                    placeholder="you@email.com"
+                    class="input-field"
                   />
                 </div>
               </div>
-
-              <div
-                class="bg-[#0a0a0a] p-5 rounded-xl border border-white/10 mb-6 space-y-2"
-              >
-                <div class="flex justify-between">
-                  <span>Nights:</span>
-                  <span id="nightsCalc" class="font-mono">0</span>
-                </div>
-                <div class="flex justify-between">
-                  <span>Total stay:</span>
-                  <span id="totalAmount" class="font-mono text-cyan-300"
-                    >৳0</span
-                  >
-                </div>
-                <div
-                  class="flex justify-between text-cyan-400 font-semibold pt-2 border-t border-white/10"
+              <div class="mb-6">
+                <label
+                  class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest"
+                  >Upload NID / Passport</label
                 >
-                  <span>Advance (30%):</span>
-                  <span id="advanceAmount" class="font-mono">৳0</span>
+                <div class="relative">
+                  <input
+                    type="file"
+                    id="idPhoto"
+                    accept="image/*,application/pdf"
+                    class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                  />
+                  <div class="input-field flex items-center justify-between text-gray-400">
+                    <span id="fileNameDisplay" class="truncate">Select Photo or PDF...</span>
+                    <i data-lucide="upload" class="w-4 h-4"></i>
+                  </div>
                 </div>
               </div>
-
+              <div
+                class="bg-[#111] p-5 rounded-sm border border-[#222] mb-6 space-y-2"
+              >
+                <div
+                  class="flex justify-between text-sm text-gray-400 uppercase tracking-widest"
+                >
+                  <span>Nights:</span
+                  ><span id="nightsCalc" class="text-white font-mono">0</span>
+                </div>
+                <div
+                  class="flex justify-between text-sm text-gray-400 uppercase tracking-widest"
+                >
+                  <span>Total:</span
+                  ><span id="totalAmount" class="text-white font-mono">৳0</span>
+                </div>
+                <div
+                  class="flex justify-between pt-2 border-t border-[#333] text-sm text-red-500 font-bold uppercase tracking-widest"
+                >
+                  <span>Advance (30%):</span
+                  ><span id="advanceAmount" class="font-mono">৳0</span>
+                </div>
+              </div>
               <div
                 id="formError"
-                class="error-msg text-red-400 text-sm mb-3 min-h-[24px]"
+                class="text-red-500 text-sm font-medium text-center mb-4 min-h-[20px]"
               ></div>
-
               <button
                 id="submitBooking"
-                class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                class="w-full py-4 bg-red-600 text-white rounded-sm font-bold uppercase tracking-widest hover:bg-red-700 transition-colors flex items-center justify-center gap-2"
               >
-                <i data-lucide="send" class="w-5 h-5"></i> Confirm Booking
+                Confirm Booking
               </button>
             </div>
           </div>
 
-          <div id="successView" class="hidden p-8 text-center">
-            <div class="flex justify-end">
-              <button
-                id="closeSuccessBtn"
-                class="text-gray-400 hover:text-white transition-colors"
-              >
-                <i data-lucide="x" class="w-6 h-6"></i>
-              </button>
-            </div>
-            <div class="mb-6">
-              <div
-                class="w-20 h-20 mx-auto bg-green-500/20 rounded-full flex items-center justify-center"
-              >
-                <i
-                  data-lucide="check-circle"
-                  class="w-10 h-10 text-green-400"
-                ></i>
-              </div>
-            </div>
-            <h3 class="text-3xl font-bold text-white mb-2">
-              Booking Recorded!
-            </h3>
-            <p class="text-gray-400 mb-6">
-              Your reservation has been successfully submitted.
-            </p>
-
+          <div id="successView" class="hidden p-10 text-center">
             <div
-              class="bg-[#0a0a0a] p-6 rounded-xl border border-white/10 mb-6"
+              class="w-16 h-16 mx-auto bg-red-500/10 flex items-center justify-center mb-6 rounded-sm border border-red-500/30"
             >
-              <div
-                class="flex justify-between mb-3 pb-3 border-b border-white/10"
-              >
-                <span class="text-gray-400">Total Amount:</span>
-                <span id="successTotal" class="text-xl font-bold text-white"
+              <i data-lucide="check" class="w-8 h-8 text-red-500"></i>
+            </div>
+            <h3
+              class="text-2xl font-bold text-white mb-2 uppercase tracking-widest"
+            >
+              Booking Received
+            </h3>
+            <p class="text-gray-500 mb-8 text-sm">
+              Please send payment to confirm.
+            </p>
+            <div
+              class="bg-[#111] p-6 border border-[#222] mb-8 text-left rounded-sm"
+            >
+              <div class="flex justify-between mb-3">
+                <span class="text-gray-400 uppercase tracking-widest text-xs"
+                  >Total Amount:</span
+                ><span
+                  id="successTotal"
+                  class="font-bold text-white text-md font-mono"
                   >৳0</span
                 >
               </div>
-              <div class="flex justify-between mb-4">
-                <span class="text-gray-400">30% Advance Required:</span>
-                <span
+              <div
+                class="flex justify-between mb-5 pb-5 border-b border-[#333]"
+              >
+                <span class="text-gray-400 uppercase tracking-widest text-xs"
+                  >Advance Needed (30%):</span
+                ><span
                   id="successAdvance"
-                  class="text-xl font-bold text-cyan-400"
+                  class="font-bold text-red-500 text-lg font-mono"
                   >৳0</span
                 >
               </div>
-
-              <div
-                class="mt-4 p-4 bg-cyan-950/40 border border-cyan-800 rounded-lg"
-              >
-                <p class="text-sm text-gray-300 mb-2">
-                  Send advance payment to:
+              <div class="text-center">
+                <p
+                  class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3"
+                >
+                  Send via bKash/Nagad
                 </p>
-                <p class="text-white font-mono mb-1">bKash: 01819-077914</p>
-                <p class="text-white font-mono mb-3">Nagad: 01819-077914</p>
-                <p class="text-xs text-gray-400">
-                  After sending payment, click the button below to notify us on
-                  WhatsApp.
+                <p class="text-white font-mono font-bold text-lg mb-1">
+                  01819-077914
                 </p>
               </div>
             </div>
 
             <button
               id="whatsappConfirmBtn"
-              class="w-full py-4 bg-green-600 hover:bg-green-700 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
+              class="w-full py-4 bg-[#25D366] text-white rounded-sm font-bold uppercase tracking-widest hover:bg-[#1ebe5d] transition-colors flex items-center justify-center gap-2"
             >
-              <i data-lucide="message-circle" class="w-5 h-5"></i> Confirm
-              Payment on WhatsApp
+              <i data-lucide="message-circle" class="w-5 h-5"></i> Notify
+              WhatsApp
             </button>
-            <p class="text-xs text-gray-500 mt-4">
-              Your booking is saved. We'll confirm once payment is received.
-            </p>
+            <button
+              id="closeSuccessBtn"
+              class="mt-4 text-gray-500 text-xs uppercase tracking-widest hover:text-white"
+            >
+              Close Window
+            </button>
           </div>
         </div>
       </div>
