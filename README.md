@@ -33,8 +33,8 @@ Before you begin, ensure you have the following installed:
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd mobile-app-rn
+   git clone https://github.com/sadabx/mermaid-resort-beta.git
+   cd react-app
    ```
 
 2. **Install dependencies**
@@ -55,9 +55,9 @@ Before you begin, ensure you have the following installed:
 ## 📁 Project Structure
 
 ```
-mobile-app-rn/
+react-app/
 ├── src/
-│   ├── components/          # Reusable UI components
+│   ├── assets/          # Reusable UI components
 │   ├── screens/            # Screen components
 │   │   ├── HomeScreen.js
 │   │   ├── RoomDetailsScreen.js
@@ -162,7 +162,7 @@ REACT_APP_API_KEY=your_api_key
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+You may contribute via pull requests, but you may not copy, redistribute, or sell this code.
 
 ## 👨‍💻 Author
 
@@ -171,7 +171,3 @@ Mermaid Resort Development Team
 ## 📞 Support
 
 For issues and questions, please create an issue in the repository or contact the development team.
-
----
-
-**Happy coding! 🎉**
