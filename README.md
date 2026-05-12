@@ -55,23 +55,29 @@ Before you begin, ensure you have the following installed:
 ## 📁 Project Structure
 
 ```
-react-app/
-├── src/
-│   ├── assets/          # Reusable UI components
-│   ├── screens/            # Screen components
-│   │   ├── HomeScreen.js
-│   │   ├── RoomDetailsScreen.js
-│   │   ├── BookingFormScreen.js
-│   │   └── AdminDashboardScreen.js
-│   ├── navigation/         # Navigation configuration
-│   ├── data/
-│   │   └── rooms.js        # Room data and utilities
-│   └── api.js              # API calls and services
-├── assets/                 # Images, icons, fonts
-├── App.js                  # Root app component
-├── index.js                # Entry point
-├── app.json                # Expo configuration
-└── package.json            # Project dependencies
+mermaid-resort-beta/
+├── react-app/              # React Native app
+│   ├── src/
+│   │   ├── screens/        # Screen components
+│   │   │   ├── HomeScreen.js
+│   │   │   ├── RoomDetailsScreen.js
+│   │   │   ├── BookingFormScreen.js
+│   │   │   └── AdminDashboardScreen.js
+│   │   ├── data/
+│   │   │   └── rooms.js    # Room data and utilities
+│   │   └── api.js          # API calls and services
+│   ├── assets/             # Images and resources
+│   ├── App.js              # Root app component
+│   ├── index.js            # Entry point
+│   ├── app.json            # Expo configuration
+│   └── package.json        # Project dependencies
+├── assets/                 # Shared assets (images, photos)
+├── index.html              # Static HTML
+├── restaurant.html         # Restaurant page
+├── rooms.js                # Room data (legacy)
+├── script.js               # JavaScript utilities
+├── styles.css              # Global styles
+└── README.md               # This file
 ```
 
 ## 🎯 Getting Started

@@ -112,62 +112,48 @@ if (roomsContainer && typeof roomsData !== 'undefined') {
   document.querySelectorAll('#rooms-container .scroll-reveal').forEach(el => revealObserver.observe(el));
   lucide.createIcons();
 
+  // ---- Build custom room picker dropdown ----
+  const roomPickerDropdown = document.getElementById('roomPickerDropdown');
+  if (roomPickerDropdown) {
+    roomsData.forEach(room => {
+      const item = document.createElement('div');
+      item.className = 'room-picker-item flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-[#1a1a1a] border-b border-[#1e1e1e] last:border-0 transition-colors';
+      item.dataset.room = room.name;
+      item.dataset.price = room.price;
+      item.innerHTML = `
+        <div>
+          <p class="text-sm font-medium text-white">${room.name}</p>
+          <p class="text-[11px] text-gray-500 uppercase tracking-wider mt-0.5">${room.features.join(' · ')}</p>
+        </div>
+        <span class="text-red-500 font-bold text-sm ml-4 shrink-0">৳${room.price.toLocaleString()}</span>
+      `;
+      item.addEventListener('click', () => selectRoomInPicker(room.name, room.price));
+      roomPickerDropdown.appendChild(item);
+    });
+  }
+
+  // ---- Gallery navigation ----
   document.querySelectorAll('.room-card').forEach(card => {
     const gallery = card.querySelector('.room-gallery');
     if (!gallery) return;
-    
     const prevBtn = card.querySelector('.gallery-prev');
     const nextBtn = card.querySelector('.gallery-next');
     const images = gallery.querySelectorAll('.gallery-img');
     let currentIndex = 0;
-
     function showImage(index) {
       images.forEach(img => img.classList.remove('active'));
       images[index].classList.add('active');
     }
-
     if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); currentIndex = (currentIndex - 1 + images.length) % images.length; showImage(currentIndex); });
     if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); currentIndex = (currentIndex + 1) % images.length; showImage(currentIndex); });
   });
 
+  // ---- "Select Room" card button — pre-selects picker ----
   document.querySelectorAll('.select-room-btn').forEach(btn => {
-    btn.addEventListener('click', async (e) => {
+    btn.addEventListener('click', (e) => {
       e.preventDefault();
       const card = btn.closest('.room-card');
-      currentRoom = card.dataset.room;
-      currentPrice = parseInt(card.dataset.price);
-      
-      const selectedRoomDisplay = document.getElementById('selectedRoomDisplay');
-      const pricePerNightDisplay = document.getElementById('pricePerNightDisplay');
-      
-      if (selectedRoomDisplay) selectedRoomDisplay.innerText = currentRoom;
-      if (pricePerNightDisplay) pricePerNightDisplay.innerText = `৳${currentPrice.toLocaleString()}/night`;
-      
-      if (bookingFormView) bookingFormView.classList.remove('hidden');
-      if (successView) successView.classList.add('hidden');
-      
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-      lucide.createIcons();
-      updateCalculation();
-
-      if (checkinInput) { checkinInput.disabled = true; checkinInput.placeholder = "Loading dates..."; }
-      if (checkoutInput) { checkoutInput.disabled = true; checkoutInput.placeholder = "Loading dates..."; }
-
-      fetchBookedDates(currentRoom).then(() => {
-        if (checkinPicker) checkinPicker.set('disable', bookedDates);
-        if (checkoutPicker) checkoutPicker.set('disable', bookedDates);
-        if (checkinInput) { checkinInput.disabled = false; checkinInput.placeholder = "Select Check-in Date"; }
-        if (checkoutInput) { checkoutInput.disabled = false; checkoutInput.placeholder = "Select Check-out Date"; }
-      });
-
-      if (bookingFormView) bookingFormView.classList.remove('hidden');
-      if (successView) successView.classList.add('hidden');
-      
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-      lucide.createIcons();
-      updateCalculation();
+      openBookingModal(card.dataset.room, parseInt(card.dataset.price));
     });
   });
 }
@@ -180,16 +166,108 @@ const bookingFormView = document.getElementById('bookingFormView');
 const successView = document.getElementById('successView');
 const navBookBtn = document.getElementById('navBookBtn');
 const heroBookBtn = document.getElementById('heroBookBtn');
-const roomsSection = document.getElementById('rooms');
 
-function scrollToRooms() {
-  roomsSection.scrollIntoView({ behavior: 'smooth' });
-  if (isMenuOpen) toggleMenu();
+// ---- Custom room picker helpers ----
+function setRoomPickerUI(roomName, price) {
+  const label = document.getElementById('roomPickerLabel');
+  const priceEl = document.getElementById('roomPickerPrice');
+  const trigger = document.getElementById('roomPickerTrigger');
+  if (roomName) {
+    if (label) { label.innerText = roomName; label.classList.remove('text-gray-400'); label.classList.add('text-white', 'font-medium'); }
+    if (priceEl) { priceEl.innerText = `৳${price.toLocaleString()} / night`; priceEl.classList.remove('hidden'); }
+    if (trigger) trigger.classList.add('border-red-600');
+  } else {
+    if (label) { label.innerText = '— Choose a room —'; label.classList.add('text-gray-400'); label.classList.remove('text-white', 'font-medium'); }
+    if (priceEl) { priceEl.classList.add('hidden'); priceEl.innerText = ''; }
+    if (trigger) trigger.classList.remove('border-red-600');
+  }
 }
 
-if (navBookBtn) navBookBtn.addEventListener('click', scrollToRooms);
-if (heroBookBtn) heroBookBtn.addEventListener('click', scrollToRooms);
-if (mobileBookBtn) mobileBookBtn.addEventListener('click', scrollToRooms);
+function selectRoomInPicker(roomName, price) {
+  currentRoom = roomName;
+  currentPrice = price;
+  setRoomPickerUI(roomName, price);
+  closeRoomPicker();
+  updateCalculation();
+  // Fetch availability
+  if (checkinInput) { checkinInput.disabled = true; checkinInput.placeholder = 'Loading dates...'; }
+  if (checkoutInput) { checkoutInput.disabled = true; checkoutInput.placeholder = 'Loading dates...'; }
+  fetchBookedDates(currentRoom).then(() => {
+    if (checkinPicker) checkinPicker.set('disable', bookedDates);
+    if (checkoutPicker) checkoutPicker.set('disable', bookedDates);
+    if (checkinInput) { checkinInput.disabled = false; checkinInput.placeholder = 'Select date'; }
+    if (checkoutInput) { checkoutInput.disabled = false; checkoutInput.placeholder = 'Select date'; }
+  });
+}
+
+function openRoomPicker() {
+  const dropdown = document.getElementById('roomPickerDropdown');
+  const chevron = document.getElementById('roomPickerChevron');
+  if (dropdown) dropdown.classList.remove('hidden');
+  if (chevron) chevron.classList.add('rotate-180');
+}
+
+function closeRoomPicker() {
+  const dropdown = document.getElementById('roomPickerDropdown');
+  const chevron = document.getElementById('roomPickerChevron');
+  if (dropdown) dropdown.classList.add('hidden');
+  if (chevron) chevron.classList.remove('rotate-180');
+}
+
+// Toggle picker on trigger click
+const roomPickerTrigger = document.getElementById('roomPickerTrigger');
+if (roomPickerTrigger) {
+  roomPickerTrigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const dropdown = document.getElementById('roomPickerDropdown');
+    const isOpen = !dropdown.classList.contains('hidden');
+    isOpen ? closeRoomPicker() : openRoomPicker();
+  });
+}
+// Close picker when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('#roomPickerTrigger') && !e.target.closest('#roomPickerDropdown')) closeRoomPicker();
+});
+
+// ---- Core function: open booking modal, optionally pre-selecting a room ----
+function openBookingModal(preselectedRoom = null, preselectedPrice = null) {
+  if (isMenuOpen) toggleMenu();
+  closeRoomPicker();
+
+  if (preselectedRoom && preselectedPrice) {
+    currentRoom = preselectedRoom;
+    currentPrice = preselectedPrice;
+    setRoomPickerUI(preselectedRoom, preselectedPrice);
+    // Load availability for the pre-selected room
+    if (checkinInput) { checkinInput.disabled = true; checkinInput.placeholder = 'Loading dates...'; }
+    if (checkoutInput) { checkoutInput.disabled = true; checkoutInput.placeholder = 'Loading dates...'; }
+    fetchBookedDates(currentRoom).then(() => {
+      if (checkinPicker) checkinPicker.set('disable', bookedDates);
+      if (checkoutPicker) checkoutPicker.set('disable', bookedDates);
+      if (checkinInput) { checkinInput.disabled = false; checkinInput.placeholder = 'Select date'; }
+      if (checkoutInput) { checkoutInput.disabled = false; checkoutInput.placeholder = 'Select date'; }
+    });
+  } else {
+    // Called from Book Now — reset to blank
+    currentRoom = '';
+    currentPrice = 0;
+    setRoomPickerUI(null, 0);
+    bookedDates = [];
+    if (checkinPicker) checkinPicker.set('disable', []);
+    if (checkoutPicker) checkoutPicker.set('disable', []);
+  }
+
+  if (bookingFormView) bookingFormView.classList.remove('hidden');
+  if (successView) successView.classList.add('hidden');
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  lucide.createIcons();
+  updateCalculation();
+}
+
+if (navBookBtn) navBookBtn.addEventListener('click', () => openBookingModal());
+if (heroBookBtn) heroBookBtn.addEventListener('click', () => openBookingModal());
+if (mobileBookBtn) mobileBookBtn.addEventListener('click', () => openBookingModal());
 
 function closeModal() {
   modal.classList.add('hidden');
@@ -314,6 +392,35 @@ if (idPhotoInput) {
   });
 }
 
+// ========== CUSTOMER PHOTO (SELFIE) UPLOAD ==========
+const customerPhotoInput = document.getElementById('customerPhoto');
+const customerPhotoNameDisplay = document.getElementById('customerPhotoNameDisplay');
+let currentCustomerPhotoBase64 = '';
+let currentCustomerPhotoMimeType = '';
+let currentCustomerPhotoName = '';
+
+if (customerPhotoInput) {
+  customerPhotoInput.addEventListener('change', function() {
+    if (this.files && this.files[0]) {
+      const file = this.files[0];
+      customerPhotoNameDisplay.innerText = file.name;
+      currentCustomerPhotoName = file.name;
+      currentCustomerPhotoMimeType = file.type;
+      
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        currentCustomerPhotoBase64 = e.target.result.split(',')[1];
+      };
+      reader.readAsDataURL(file);
+    } else {
+      customerPhotoNameDisplay.innerText = 'Take or Upload Photo...';
+      currentCustomerPhotoBase64 = '';
+      currentCustomerPhotoMimeType = '';
+      currentCustomerPhotoName = '';
+    }
+  });
+}
+
 const submitBtn = document.getElementById('submitBooking');
 
 if (submitBtn) {
@@ -354,6 +461,7 @@ if (submitBtn) {
       nights: nights, guests: guestCount, totalAmount: total, advance30: advance,
       fullName: name, phone: phone, email: email, idCard: 'N/A', 
       idPhotoBase64: currentPhotoBase64, idPhotoMimeType: currentPhotoMimeType, idPhotoName: currentPhotoName,
+      customerPhotoBase64: currentCustomerPhotoBase64, customerPhotoMimeType: currentCustomerPhotoMimeType, customerPhotoName: currentCustomerPhotoName,
       ipAddress: userIP
     };
 

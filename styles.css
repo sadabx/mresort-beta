@@ -75,9 +75,12 @@ body {
   will-change: transform, opacity;
   backface-visibility: hidden;
   transform: translateZ(0);
+  background-color: #111; /* Prevent white flash on Firefox with progressive JPEGs */
 }
 .gallery-img.active { opacity: 1; z-index: 1; }
 .room-card:hover .gallery-img.active { transform: scale(1.03); }
+/* Ensure the gallery wrapper itself is never white */
+.room-gallery { background-color: #111; }
 
 /* =========================================
    4. FORM INPUTS
@@ -97,6 +100,12 @@ body {
   box-shadow: 0 0 0 1px #dc2626;
 }
 .input-field::placeholder { color: #555; }
+
+/* Custom room picker dropdown scrollbar */
+#roomPickerDropdown::-webkit-scrollbar { width: 4px; }
+#roomPickerDropdown::-webkit-scrollbar-track { background: #0f0f0f; }
+#roomPickerDropdown::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+#roomPickerDropdown::-webkit-scrollbar-thumb:hover { background: #dc2626; }
 
 .loading-dots:after {
   content: '...';
